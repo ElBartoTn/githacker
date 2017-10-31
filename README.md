@@ -1,8 +1,16 @@
 # GITHACK app 
 
 Building app to get Top list for Expansya Developers based on their Github Profiles
+https://www.expensya.com
 
-https://www.expensya.com/fr
+## Using
+
+* MongoDB
+* Angularjs
+* Nodejs
+* Express
+
+
 ## Requirements
 
 * [Node.js](http://nodejs.org/)

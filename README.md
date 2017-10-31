@@ -11,7 +11,7 @@ https://www.expensya.com/fr
 
 1. Clone repo
 2. Run inside the repo `npm install`
-3. Run `node server.js`
+3. Run `npm start`
 
 
 ## License

@@ -58,14 +58,14 @@ app.get("/profile", function (req, res) {
 app.post("/profile", function (req, res) {
   var newProfile = req.body;
   newProfile.username = req.body.username;
-  newProfile.country=req.body.country;
+  newProfile.country = req.body.country;
   newProfile.starsNbr = req.body.starsNbr;
   newProfile.issuesNbr = req.body.issuesNbr;
   newProfile.forksNbr = req.body.forksNbr;
   newProfile.projectNbr = req.body.projectNbr;
   newProfile.totalScore = req.body.totalScore;
-  
-  
+
+
 
 
 
@@ -89,12 +89,21 @@ app.post("/profile", function (req, res) {
  *   
  */
 
-app.get("/profile/:username", function(req, res) {
-  db.collection(PROFILES_COLLECTION).findOne({ username: req.params.username }, function(err, doc) {
+app.get("/profile/:username", function (req, res) {
+  db.collection(PROFILES_COLLECTION).findOne({ username: req.params.username }, function (err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get profile");
     } else {
-      res.status(200).json(doc);  
+      res.status(200).json(doc);
+    }
+  });
+});
+app.get("/profile/:country", function (req, res) {
+  db.collection(PROFILES_COLLECTION).findOne({ country: req.params.country }, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get profile");
+    } else {
+      res.status(200).json(doc);
     }
   });
 });

@@ -41,7 +41,7 @@ function handleError(res, reason, message, code) {
 }
 
 /* 
- *    GET: finds all profile
+ *    GET: finds all profile order by score
  *    POST: creates a new profile
  */
 app.get("/profile", function(req, res) {
@@ -56,7 +56,8 @@ app.get("/profile", function(req, res) {
 
 app.post("/profile", function(req, res) {
   var newProfile = req.body;
-  newProfile.userame = req.body.username;
+  newProfile.username = req.body.username;
+  newProfile.country=req.body.country;
   newProfile.starsNbr = req.body.starsNbr;
   newProfile.issuesNbr = req.body.issuesNbr;
   newProfile.forksNbr = req.body.forksNbr;

@@ -92,21 +92,27 @@ app.post("/profile", function (req, res) {
 app.get("/profile/user/:username", function (req, res) {
   db.collection(PROFILES_COLLECTION).find({ username: req.params.username }).sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get profile");
+      handleError(res, err.message, "Failed to get profile.");
     } else {
-      res.status(200).json(doc);
+      res.status(200).json(docs);
     }
   });
+
 });
+
+
 app.get("/profile/count/:country", function (req, res) {
-  db.collection(PROFILES_COLLECTION).find({ country: req.params.country }, function (err, doc) {
+  db.collection(PROFILES_COLLECTION).find({ country: req.params.country }).sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get profile");
+      handleError(res, err.message, "Failed to get profile.");
     } else {
-      res.status(200).json(doc);
+      res.status(200).json(docs);
     }
   });
+
 });
+
+
 
 
 

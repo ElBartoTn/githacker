@@ -52,6 +52,7 @@ app.get("/profile", function (req, res) {
       res.status(200).json(docs);
     }
   });
+
 });
 
 app.post("/profile", function (req, res) {

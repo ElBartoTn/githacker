@@ -1,32 +1,24 @@
-# Deploy Your Own REST API in 30 Mins Using mLabs and Heroku
+# GITHACK app 
 
-This tutorial demonstrates how to use the MEAN stack to rapidly create a RESTful API server and web application.
+Building app to get Top list for Expansya Developer based on their Github Profiles
 
-http://sitepoint.com/deploy-rest-api-in-30-mins-mlabs-heroku
-
+https://www.expensya.com/fr
 ## Requirements
 
 * [Node.js](http://nodejs.org/)
-* [Heroku Account](https://signup.heroku.com/)
-* [Heroku Toolbelt](https://toolbelt.heroku.com/)
-* [mLab account](https://mlab.com/signup/)
 
 ## Installation
 
 1. Clone repo
-2. Run `heroku create`
-3. Run `npm install`
-4. Create a new single-node Sandbox MongoDB database in US EAST
-5. Set `MONGOLAB_URI` env var on Heroku
-6. Run `git push heroku master`
-7. Run `heroku ps:scale web=1`
-8. Run `heroku open`
+2. Run inside the repo `npm install`
+3. Run `node server.js`
+
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016 SitePoint
+Copyright (c) 2017 Fivepoints
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

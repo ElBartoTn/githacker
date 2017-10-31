@@ -89,8 +89,8 @@ app.post("/profile", function (req, res) {
  *   
  */
 
-app.get("/profile/:username", function (req, res) {
-  db.collection(PROFILES_COLLECTION).findOne({ username: req.params.username }, function (err, doc) {
+app.get("/profile/user/:username", function (req, res) {
+  db.collection(PROFILES_COLLECTION).find({ username: req.params.username }).sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile");
     } else {
@@ -98,8 +98,8 @@ app.get("/profile/:username", function (req, res) {
     }
   });
 });
-app.get("/profile/:country", function (req, res) {
-  db.collection(PROFILES_COLLECTION).findOne({ country: req.params.country }, function (err, doc) {
+app.get("/profile/count/:country", function (req, res) {
+  db.collection(PROFILES_COLLECTION).find({ country: req.params.country }, function (err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to get profile");
     } else {

@@ -5,14 +5,15 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 
-
+var PROFILES_COLLECTION = "profiles";
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
-var url = 'mongodb://<Fivepoints>@ds141175.mlab.com:41175/githacker'
+var url = 'mongodb://admin:admin@ds141175.mlab.com:41175/githacker'
 // Connect to the database before starting the application server. 
 mongodb.MongoClient.connect(url, function (err, database) {
   if (err) {
@@ -40,9 +41,38 @@ function handleError(res, reason, message, code) {
 }
 
 /* 
- *    GET: finds all contacts
- *    POST: creates a new contact
+ *    GET: finds all profile
+ *    POST: creates a new profile
  */
+app.get("/profile", function(req, res) {
+  db.collection(PROFILES_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get profile.");
+    } else {
+      res.status(200).json(docs);  
+    }
+  });
+});
+
+app.post("/profile", function(req, res) {
+  var newProfile = req.body;
+ console.log(req.body.username);
+  newProfile.userame = req.body.username;
+  newProfile.starsNbr = req.body.starsNbr;
+  newProfile.issuesNbr = req.body.issuesNbr;
+  newProfile.forksNbr = req.body.forksNbr;
+  newProfile.projectNbr = req.body.projectNbr;
+  
+
+ 
+  db.collection(PROFILES_COLLECTION).insertOne(newProfile, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new profile.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
 
 
 

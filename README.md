@@ -1,6 +1,6 @@
 # GITHACK app 
 
-Building app to get Top list for Expansya Developer based on their Github Profiles
+Building app to get Top list for Expansya Developers based on their Github Profiles
 
 https://www.expensya.com/fr
 ## Requirements

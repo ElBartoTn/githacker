@@ -9,7 +9,7 @@ var PROFILES_COLLECTION = "profiles";
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -37,35 +37,35 @@ mongodb.MongoClient.connect(url, function (err, database) {
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
+  res.status(code || 500).json({ "error": message });
 }
 
 /* 
  *    GET: finds all profile
  *    POST: creates a new profile
  */
-app.get("/profile", function(req, res) {
-  db.collection(PROFILES_COLLECTION).find({}).toArray(function(err, docs) {
+app.get("/profile", function (req, res) {
+  db.collection(PROFILES_COLLECTION).find().sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile.");
     } else {
-      res.status(200).json(docs);  
+      res.status(200).json(docs);
     }
   });
 });
 
-app.post("/profile", function(req, res) {
+app.post("/profile", function (req, res) {
   var newProfile = req.body;
- console.log(req.body.username);
+  console.log(req.body.username);
   newProfile.userame = req.body.username;
   newProfile.starsNbr = req.body.starsNbr;
   newProfile.issuesNbr = req.body.issuesNbr;
   newProfile.forksNbr = req.body.forksNbr;
   newProfile.projectNbr = req.body.projectNbr;
-  
 
- 
-  db.collection(PROFILES_COLLECTION).insertOne(newProfile, function(err, doc) {
+
+
+  db.collection(PROFILES_COLLECTION).insertOne(newProfile, function (err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to create new profile.");
     } else {
@@ -77,7 +77,7 @@ app.post("/profile", function(req, res) {
 
 
 
-  
+
 
 /*  "/contacts/:id"
  *    GET: find contact by id

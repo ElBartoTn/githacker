@@ -56,12 +56,13 @@ app.get("/profile", function(req, res) {
 
 app.post("/profile", function(req, res) {
   var newProfile = req.body;
- console.log(req.body.username);
   newProfile.userame = req.body.username;
   newProfile.starsNbr = req.body.starsNbr;
   newProfile.issuesNbr = req.body.issuesNbr;
   newProfile.forksNbr = req.body.forksNbr;
   newProfile.projectNbr = req.body.projectNbr;
+  newProfile.totalScore = req.body.totalScore;
+  
   
 
  
@@ -79,13 +80,21 @@ app.post("/profile", function(req, res) {
 
   
 
-/*  "/contacts/:id"
- *    GET: find contact by id
- *    PUT: update contact by id
- *    DELETE: deletes contact by id
+/*  "/profile/:id"
+ *    GET: find profile by id
+ *    PUT: update profile by id
+ *   
  */
 
-
+app.get("/profile/:username", function(req, res) {
+  db.collection(PROFILES_COLLECTION).findOne({ username: req.params.username }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get profile");
+    } else {
+      res.status(200).json(doc);  
+    }
+  });
+});
 
 
 

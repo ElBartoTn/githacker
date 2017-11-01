@@ -48,11 +48,15 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
 
 
 
-Githackapp.controller("TopListController", function (contacts, $scope) {
+Githackapp.controller("TopListController", function ($http, $scope) {
 
 
 
-
+    $http.get('http://localhost:8080/profiles/').success(function(data) {
+        $scope.profiles = data;
+       
+        
+    });
 
 
 });

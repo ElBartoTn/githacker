@@ -1,5 +1,8 @@
-angular.module("Githackapp", ['ngRoute'])
-    .config(function ($routeProvider) {
+
+var Githackapp = angular.module('Githackapp',  ['ngRoute']);
+
+
+Githackapp.config(function ($routeProvider) {
         $routeProvider
             .when("/", {
                 templateUrl: "index.html",
@@ -10,7 +13,7 @@ angular.module("Githackapp", ['ngRoute'])
                 controller: "LoginController",
                 templateUrl: "login.html"
             })
-            .when("/profile", {
+            .when("/profile/:username", {
                 controller: "ProfileController",
                 templateUrl: "profile.html"
             })
@@ -19,25 +22,32 @@ angular.module("Githackapp", ['ngRoute'])
                 templateUrl: "top-list.html"
             })
 
+        });
+   
+
+Githackapp.controller("LoginController", function ($http, $scope) {
+
+
+
+
+
+
+
+});
+Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
+    $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
+        $scope.p = data;
+       
+        
+    });
+       
+        
     });
 
-Githackapp.controller("LoginController", function (contacts, $scope) {
 
 
 
 
-
-
-
-});
-Githackapp.controller("ProfileController", function (contacts, $scope) {
-
-
-
-
-
-
-});
 Githackapp.controller("TopListController", function (contacts, $scope) {
 
 
@@ -46,6 +56,11 @@ Githackapp.controller("TopListController", function (contacts, $scope) {
 
 
 });
+
+
+
+
+
 
 
 

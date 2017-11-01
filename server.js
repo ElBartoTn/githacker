@@ -44,7 +44,7 @@ function handleError(res, reason, message, code) {
  *    GET: finds all profile order by score
  *    POST: creates a new profile
  */
-app.get("/profile", function (req, res) {
+app.get("/profiles", function (req, res) {
   db.collection(PROFILES_COLLECTION).find().sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile.");
@@ -88,8 +88,8 @@ app.post("/profile", function (req, res) {
  *   
  */
 
-app.get("/profile/user/:username", function (req, res) {
-  db.collection(PROFILES_COLLECTION).find({ username: req.params.username }).sort({ totalScore: -1 }).toArray(function (err, docs) {
+app.get("/profiles/:username", function (req, res) {
+  db.collection(PROFILES_COLLECTION).findOne({ username: req.params.username },function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile.");
     } else {

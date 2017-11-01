@@ -64,8 +64,7 @@ app.post("/profile", function (req, res) {
   newProfile.forksNbr = req.body.forksNbr;
   newProfile.projectNbr = req.body.projectNbr;
   newProfile.totalScore = req.body.totalScore;
-
-
+  newProfile.technologie = req.body.technologie;
 
 
 
@@ -103,6 +102,17 @@ app.get("/profile/user/:username", function (req, res) {
 
 app.get("/profile/count/:country", function (req, res) {
   db.collection(PROFILES_COLLECTION).find({ country: req.params.country }).sort({ totalScore: -1 }).toArray(function (err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get profile.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+
+});
+
+app.get("/profile/tech/:technologie", function (req, res) {
+  db.collection(PROFILES_COLLECTION).find({ technologie: req.params.technologie }).sort({ totalScore: -1 }).toArray(function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile.");
     } else {

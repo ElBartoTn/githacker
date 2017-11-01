@@ -1,7 +1,7 @@
 {
   "name": "MEAN",
   "version": "1.0.0",
-  "description": "A MEAN app that allows users to manage contact lists",
+  "description": "Top github developers",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,9 +12,11 @@
     "url": ""
   },
   "keywords": [
-    "MEAN",
+    "Git awards",
     "Express",
-    "Angular"
+    "Angularjs",
+    "nodejs",
+    "Mongodb"
   ],
   "author": "FivePoints",
   "license": "MIT",

@@ -1,0 +1,17 @@
+.intro {
+    height: 800px;
+    background-image: url(/img/main-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1000px 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginButton{
+
+text-align: center;
+
+
+}

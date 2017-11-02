@@ -1,4 +1,4 @@
-var nbrprojetcount = function (user, cb) {
+var getImag = function (user, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 
@@ -21,7 +21,6 @@ var nbrprojetcount = function (user, cb) {
                 cb(total)
             }
         }
-
     })
 
     function request(url, cb) {
@@ -42,9 +41,20 @@ var nbrprojetcount = function (user, cb) {
     }
 
     function output(repos) {
-        var nbr = 0,
-            nbr = repos.length
-        return nbr;
+        var ownerlist = ""
+        var image = "",
+            longest = 0,
+            list = repos
+                .filter(function (r) {
+                    ownerlist = r.owner
+                })
+
+
+        if (list.length > opts.limit) {
+            list = list.slice(0, opts.limit)
+        }
+        image = ownerlist.avatar_url
+        return image;
 
 		/* console.log('\nTatal: ' + total + '\n')
 		console.log(list.map(function (r) {
@@ -72,4 +82,4 @@ var nbrprojetcount = function (user, cb) {
     }
 }
 
-module.exports = nbrprojetcount
+module.exports = getImag

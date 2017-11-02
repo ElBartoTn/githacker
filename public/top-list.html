@@ -21,7 +21,7 @@
                                 Expensya rank
                             </th>
                             <th>
-                                Stars
+                                Score
                                 <i class="fa fa-star star"></i>
                             </th>
                         </tr>
@@ -29,8 +29,8 @@
                     <tbody>
 
                         <tr ng-repeat="a in profiles | filter: rech">
-                            <td>{{a.username}} </td>
-                            <td>{{a.starsNbr}}</td>
+                            <td> {{$index+1}}</td>
+                            <td>{{a.username}}</td>
                             <td>{{a.totalScore}}</td>
                         </tr>
                     </tbody>

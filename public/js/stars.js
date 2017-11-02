@@ -63,6 +63,7 @@ var starsCount = function (user, cb) {
 
 		return total;
 
+
 		/* console.log('\nTatal: ' + total + '\n')
 		console.log(list.map(function (r) {
 			return r.name +

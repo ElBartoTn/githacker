@@ -34,3 +34,9 @@ var nbrprojetcount = require('./nbrprojet.js')
 nbrprojetcount('devrecipe', function (nbr) {
 	console.log(nbr)
 })
+
+var getImag = require('./image.js')
+
+getImag('devrecipe', function (image) {
+	console.log(image)
+})

@@ -1,4 +1,4 @@
-var starsCount = function (user, cb) {
+var starsCount = function(user,access_token,cb) {
 	var https = require('https')
 	opts = parseOpts(process.argv.slice(3))
 
@@ -11,7 +11,7 @@ var starsCount = function (user, cb) {
 			i = pages,
 			repos = []
 		while (i--) {
-			request('/users/' + user + '/repos?per_page=100&page=' + (i + 1), check)
+			request('/users/'+user+'/repos?per_page=100&page=' + (i + 1), check)
 		}
 		function check(res) {
 			repos = repos.concat(res)
@@ -27,7 +27,7 @@ var starsCount = function (user, cb) {
 		https.request({
 			hostname: 'api.github.com',
 			path: url,
-			headers: { 'User-Agent': 'GitHub StarCounter' }
+			headers: {'User-Agent': 'GitHub StarCounter','Authorization': 'token '+ access_token  }
 		}, function (res) {
 			var body = ''
 			res
@@ -62,8 +62,6 @@ var starsCount = function (user, cb) {
 		}
 
 		return total;
-
-
 		/* console.log('\nTatal: ' + total + '\n')
 		console.log(list.map(function (r) {
 			return r.name +

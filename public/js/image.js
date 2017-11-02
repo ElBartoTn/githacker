@@ -1,4 +1,4 @@
-var getImag = function (user, cb) {
+var getImag = function (user,access_token, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 

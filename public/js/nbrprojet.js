@@ -1,4 +1,4 @@
-var nbrprojetcount = function (user, cb) {
+var nbrprojetcount = function (user,access_token, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 

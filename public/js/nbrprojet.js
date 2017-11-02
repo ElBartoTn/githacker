@@ -1,8 +1,8 @@
-var issuesCount = function (user,access_token, cb) {
+var nbrprojetcount = function (user,access_token, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 
-    request('/users/' + user , function (res) {
+    request('/users/' + user, function (res) {
         if (!res.public_repos) {
             console.log(res.message)
             return
@@ -21,13 +21,14 @@ var issuesCount = function (user,access_token, cb) {
                 cb(total)
             }
         }
+
     })
 
     function request(url, cb) {
         https.request({
             hostname: 'api.github.com',
             path: url,
-            headers: { 'User-Agent': 'GitHub StarCounter','Authorization': 'token '+ access_token  }
+            headers: { 'User-Agent': 'GitHub StarCounter' }
         }, function (res) {
             var body = ''
             res
@@ -41,34 +42,16 @@ var issuesCount = function (user,access_token, cb) {
     }
 
     function output(repos) {
-        var total = 0,
-            longest = 0,
-            list = repos
-                .filter(function (r) {
-                    total += r.open_issues_count
-                    if (r.open_issues_count >= opts.thresh) {
-                        if (r.name.length > longest) {
-                            longest = r.name.length
-                        }
-                        return true
-                    }
-                })
-                .sort(function (a, b) {
-                    return b.open_issues_count - a.open_issues_count
-                })
-
-        if (list.length > opts.limit) {
-            list = list.slice(0, opts.limit)
-        }
-
-        return total;
+        var nbr = 0,
+            nbr = repos.length
+        return nbr;
 
 		/* console.log('\nTatal: ' + total + '\n')
 		console.log(list.map(function (r) {
 			return r.name +
 				new Array(longest - r.name.length + 4).join(' ') +
 				'\u2605  ' +
-				r.open_issues_count
+				r.stargazers_count
 		}).join('\n')) */
     }
 
@@ -89,4 +72,4 @@ var issuesCount = function (user,access_token, cb) {
     }
 }
 
-module.exports = issuesCount
+module.exports = nbrprojetcount

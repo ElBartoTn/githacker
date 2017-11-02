@@ -1,4 +1,4 @@
-var forksCount = function (user, cb,acces_token) {
+var forksCount = function (user,access_token, cb,) {
 	var https = require('https')
 	opts = parseOpts(process.argv.slice(3))
 

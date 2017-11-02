@@ -1,4 +1,4 @@
-var watchersCount = function (user, cb,access_token) {
+var watchersCount = function (user,access_token, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 

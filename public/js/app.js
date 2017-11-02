@@ -77,9 +77,7 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
         $scope.p = data;
     });
 
-    
        
-        
     });
 
 

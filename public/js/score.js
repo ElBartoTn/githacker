@@ -28,3 +28,9 @@ var technologielist = require('./technologie.js')
 technologielist('devrecipe', function (technologie) {
 	console.log(technologie)
 })
+
+var nbrprojetcount = require('./nbrprojet.js')
+
+nbrprojetcount('devrecipe', function (nbr) {
+	console.log(nbr)
+})

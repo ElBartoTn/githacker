@@ -75,9 +75,9 @@ $scope.calculScore=function(username)
 Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
     $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
         $scope.p = data;
-       
-        
     });
+
+    
        
         
     });
@@ -88,11 +88,8 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
 
 Githackapp.controller("TopListController", function ($http, $scope) {
 
-
-
     $http.get('http://localhost:8080/profiles/').success(function(data) {
         $scope.profiles = data;
-       
         
     });
 

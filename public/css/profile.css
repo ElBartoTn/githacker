@@ -1,5 +1,6 @@
 body{
     background: rgb(230, 229, 229);
+    margin-top: 75px;
 }
 .col-md-3{
     background-color: whitesmoke;
@@ -111,5 +112,5 @@ li{
     height: 280px;
     position: absolute;
     right: 105px;
-    top: 353px;
+    top: 365px;
 }

@@ -76,6 +76,7 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
     $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
         $scope.p = data;
         
+        
         $scope.myJson = {
             globals: {
                 shadow: false,

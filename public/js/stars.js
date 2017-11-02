@@ -88,5 +88,5 @@ var starsCount = function (user, cb) {
 		return opts
 	}
 }
-
+console.log(starsCount)
 module.exports = starsCount

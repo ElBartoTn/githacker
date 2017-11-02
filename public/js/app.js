@@ -96,7 +96,7 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
                 }
             },
             tooltip: {
-                text: "%v requests"
+                text: "%v Projets"
             },
             plot: {
                 refAngle: "-90",

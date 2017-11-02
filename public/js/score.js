@@ -21,3 +21,10 @@ var watchersCount = require('./watchers.js')
 watchersCount('devrecipe', function (total3) {
 	console.log(total3)
 })
+
+
+var technologielist = require('./technologie.js')
+
+technologielist('devrecipe', function (technologie) {
+	console.log(technologie)
+})

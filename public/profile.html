@@ -1,6 +1,68 @@
-<div class="container">
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./css/profile.css">
+    </head>
+    <body >
+       
+        
+        <div class="container">
+            <div class="row profile">
+                <div class="col-md-3">
+                    <div class="profile-sidebar">
+                        <div class="profile-user-pic">
+                            <img src="./files/image.png" class="img-responsive img-circle">
+                        </div>
+                        <div class="profile-user-title">
+                            <div class="profile-user-name">
+                                {{p.username}}
+                               
+                            </div>
+                            <div class="profile-user-job">
+                                Score:{{p.totalScore}}
+                            </div>
+                        </div>
+                        <div class="profile-user-buttons">
+                            <button class="btn btn-success btn-sn">
+                                Follow
+                            </button>
+                        </div>
+                        <div class="profile-user-menu">
+                            <ul class="nav">
+                                <li ><a><i class="glyphicon glyphicon-home" ></i>Country: {{p.country}} </a></li>
+                                <li ><a><i class="glyphicon glyphicon-star"></i>Stars: {{p.starsNbr}}</a></li>
+                                <li ><a><i class="glyphicon glyphicon-ok"></i>N.projets:{{p.projectNbr}}</a></li>
+                                <li ><a><i class="glyphicon glyphicon-flag"></i>N.issues:{{p.issuesNbr}}</a></li>
+                            </ul>  
+                        </div>
+                    </div>
+                </div>
+                   <div class=contleft>
+                        <div class="col md-9">
+                             score:ici
+                        </div>
+                   </div>
+            </div>
+        </div>
+    
+    </body>
+    <script>
+    
+  
+             
 
+<<<<<<< HEAD
     {{p.username}}
 
 
 </div>
+=======
+    </script>
+</html>
+>>>>>>> 06af38ac35007f347cc992c917c31dfb98ca5fef

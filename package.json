@@ -26,6 +26,8 @@
   "dependencies": {
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
-    "mongodb": "^2.0.43"
+    "lodash.isempty": "^4.4.0",
+    "mongodb": "^2.0.43",
+    "octonode": "^0.9.1"
   }
 }

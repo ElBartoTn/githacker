@@ -1,13 +1,34 @@
-<div class="container" >
-        
-     
-     <h1>Hi, I'm top list page </h1>
-     
-     <ul ng-repeat="p in profiles">
-        <li>{{p.username}}</li>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<div class="row col-sm-12">
+    </br>	
+    <fieldset class="fieldset">	
+        <legend class="legend">
+            Top Github developers in Expensya
+        </legend>	
+<table align="center" width="70%"  class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+										<th>
+											Username
+										</th>
+										<th>
+											Expensya rank 
+										</th>
+										<th>
+                                            Stars 
+                                            <i class="fa fa-star star"></i>
+										</th>
+										</tr>
+                                </thead>
+                                <tbody>
+                            
+								<tr ng-repeat="a in profiles | filter: rech">
+                                    <td>{{a.username}} </td>
+                                    <td>{{a.starsNbr}}</td>
+                                    <td>{{a.totalScore}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+    </fieldset>
 
-     </ul>
-     
-     
-     
-</div>
+    <div>

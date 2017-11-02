@@ -12,7 +12,7 @@
         height: 46px;
         padding: 0;
         margin: 6px 4px;
-        background: url(./Expensya.png) no-repeat 0 0;
+        background: url(/file/Expensya.png) no-repeat 0 0;
         background-position: 0 0;
         background-size: 100% 100%;
         -webkit-background-size: 100% 100%;
@@ -23,7 +23,7 @@
             height: 46px;
             padding: 0;
             margin: 6px 4px;
-            background: url(./Expensya.png) no-repeat 0 0;
+            background: url(/file/Expensya.png) no-repeat 0 0;
             background-position: 0 0;
             background-size: 100% 100%;
             -webkit-background-size: 100% 100%;

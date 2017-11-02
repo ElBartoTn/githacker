@@ -1,7 +1,7 @@
-var starsCount = function(user, cb) {
+var starsCount = function (user, cb) {
 	var https = require('https')
 	opts = parseOpts(process.argv.slice(3))
-	
+
 	request('/users/' + user, function (res) {
 		if (!res.public_repos) {
 			console.log(res.message)
@@ -13,7 +13,7 @@ var starsCount = function(user, cb) {
 		while (i--) {
 			request('/users/' + user + '/repos?per_page=100&page=' + (i + 1), check)
 		}
-		function check (res) {
+		function check(res) {
 			repos = repos.concat(res)
 			pages--
 			if (!pages) {
@@ -23,11 +23,11 @@ var starsCount = function(user, cb) {
 		}
 	})
 
-	function request (url, cb) {
+	function request(url, cb) {
 		https.request({
 			hostname: 'api.github.com',
 			path: url,
-			headers: {'User-Agent': 'GitHub StarCounter'}
+			headers: { 'User-Agent': 'GitHub StarCounter' }
 		}, function (res) {
 			var body = ''
 			res
@@ -39,8 +39,8 @@ var starsCount = function(user, cb) {
 				})
 		}).end()
 	}
-	 
-	function output (repos) {
+
+	function output(repos) {
 		var total = 0,
 			longest = 0,
 			list = repos
@@ -60,7 +60,7 @@ var starsCount = function(user, cb) {
 		if (list.length > opts.limit) {
 			list = list.slice(0, opts.limit)
 		}
-		
+
 		return total;
 
 		/* console.log('\nTatal: ' + total + '\n')
@@ -72,7 +72,7 @@ var starsCount = function(user, cb) {
 		}).join('\n')) */
 	}
 
-	function parseOpts (args) {
+	function parseOpts(args) {
 		var opts = {
 			thresh: 1,
 			limit: Infinity

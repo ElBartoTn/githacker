@@ -1,23 +1,23 @@
 var starsCount = require('./stars.js')
 
-starsCount('chriswhong', function (total) {
+starsCount('devrecipe', function (total) {
 	console.log(total)
 })
 
 var issuesCount = require('./openIssues.js')
 
-issuesCount('chriswhong', function (total) {
-	console.log(total)
+issuesCount('devrecipe', function (total1) {
+	console.log(total1)
 })
 
 var forksCount = require('./forks.js')
 
-forksCount('chriswhong', function (total) {
-	console.log(total)
+forksCount('devrecipe', function (total2) {
+	console.log(total2)
 })
 
 var watchersCount = require('./watchers.js')
 
-watchersCount('chriswhong', function (total) {
-	console.log(total)
+watchersCount('devrecipe', function (total3) {
+	console.log(total3)
 })

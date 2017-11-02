@@ -1,5 +1,5 @@
 
-var Githackapp = angular.module('Githackapp',  ['ngRoute','satellizer']);
+var Githackapp = angular.module('Githackapp',  ['ngRoute','satellizer','zingchart-angularjs']);
 
 
 Githackapp.config(function ($routeProvider) {
@@ -75,6 +75,60 @@ $scope.calculScore=function(username)
 Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
     $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
         $scope.p = data;
+        
+        $scope.myJson = {
+            globals: {
+                shadow: false,
+                fontFamily: "Verdana",
+                fontWeight: "100"
+            },
+            type: "pie",
+            backgroundColor: "#f5f5f5",
+    
+            legend: {
+                layout: "x5",
+                position: "50%",
+                borderColor: "transparent",
+                marker: {
+                    borderRadius: 10,
+                    borderColor: "transparent"
+                }
+            },
+            tooltip: {
+                text: "%v requests"
+            },
+            plot: {
+                refAngle: "-90",
+                borderWidth: "0px",
+                valueBox: {
+                    placement: "in",
+                    text: "%npv %",
+                    fontSize: "15px",
+                    textAlpha: 1,
+                }
+            },
+            series: [{
+                text: "JavaScript",
+                values: [40],
+                backgroundColor: "#f14e4e  #f14e4e ",
+            }, {
+                text: "AngularJS",
+                values: [20],
+                backgroundColor: "#698b69 #698b69"
+            }, {
+                text: "PHP",
+                values: [5],
+                backgroundColor: "#FDAA97 #FC9B87"
+            }, {
+                text: "CSS",
+                values: [10],
+                backgroundColor: "#28C2D1"
+            }, {
+                text: "Node",
+                values: [25],
+                backgroundColor: "#D2D6DE",
+            }]
+        };
     });
 
     

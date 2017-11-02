@@ -94,6 +94,22 @@ li{
 
 .contleft{
     position: absolute;
-    top: 30px;
+ 
     left: 405px;
+}
+.conleftleft{
+    background-color: whitesmoke;
+    width: 240px;
+    height: 280px;
+    position: absolute;
+    right: 105px;
+}
+.conleftleft2
+{
+    background-color: whitesmoke;
+    width: 240px;
+    height: 280px;
+    position: absolute;
+    right: 105px;
+    top: 353px;
 }

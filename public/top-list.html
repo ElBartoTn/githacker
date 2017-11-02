@@ -39,7 +39,7 @@
 
                         <tr ng-repeat="a in profiles | filter: rech">
                             <td align="left">
-                                <img class="thumbnail avatar" src=".\file\github-mark.png">
+                                <img class="thumbnail avatar" src="{{a.img}}">
                             </td>
                             <td align="middle">
                                 <a id="lienProfil" href="#/profile/{{a.username}}">{{a.username}}</a>

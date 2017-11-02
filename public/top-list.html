@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
 
 
@@ -8,3 +9,39 @@
 
 
 </div>
+=======
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<div class="row col-sm-12">
+    </br>	
+    <fieldset class="fieldset">	
+        <legend class="legend">
+            Top Github developers in Expensya
+        </legend>	
+<table align="center" width="70%"  class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+										<th>
+											Username
+										</th>
+										<th>
+											Expensya rank 
+										</th>
+										<th>
+                                            Stars 
+                                            <i class="fa fa-star star"></i>
+										</th>
+										</tr>
+                                </thead>
+                                <tbody>
+                            
+								<tr ng-repeat="a in profiles | filter: rech">
+                                    <td>{{a.username}} </td>
+                                    <td>{{a.starsNbr}}</td>
+                                    <td>{{a.totalScore}}</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+    </fieldset>
+
+    <div>
+>>>>>>> 16300b750176f145426092201fe5ec563cf210d1

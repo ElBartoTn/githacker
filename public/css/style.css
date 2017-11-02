@@ -1,0 +1,77 @@
+.button__ {
+	
+	  background-color: Transparent;
+	  background-repeat:no-repeat;
+	  border: none;
+	  cursor:pointer;
+	  overflow: hidden;
+	  outline:none;
+   }
+   .star {
+    color: yellow;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: orange;
+    }
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transform: translate(0, 0);
+    }
+   .fieldset {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    min-width: 0px;
+    text-decoration: none solid rgb(51, 51, 51);
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 565px 90.5px;
+    transform-origin: 565px 90.5px;
+    caret-color: rgb(51, 51, 51);
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 20px 20px 20px 20px;
+    font: normal normal 300 normal 14px / 20px Dosis, Fallback, sans-serif;
+    margin: 0px;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px 10px 0px 10px;
+    }/*#FIELDSET_1*/
+    .legend {
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    height: 30px;
+    text-decoration: none solid rgb(51, 51, 51);
+    width: auto;
+    column-rule-color: rgb(51, 51, 51);
+    perspective-origin: 35px 15px;
+    transform-origin: 35px 15px;
+    caret-color: rgb(51, 51, 51);
+    border: 0px none rgb(51, 51, 51);
+    font: normal normal 300 normal 21px / 30px Dosis, Fallback, sans-serif;
+    outline: rgb(51, 51, 51) none 0px;
+    padding: 0px 10px 0px 10px;
+    }/*#LEGEND_2*/
+    
+    #select {
+    background-position: 100% 0%;
+    color: rgb(64, 64, 64);
+    cursor: pointer;
+    height: 32px;
+    max-width: 300px;
+    text-decoration: none solid rgb(64, 64, 64);
+    text-indent: 0.01px;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+    column-rule-color: rgb(64, 64, 64);
+    perspective-origin: 112px 16px;
+    transform-origin: 112px 16px;
+    background: rgb(221, 221, 221) url("https://d2k5nsl2zxldvw.cloudfront.net/images/bg_select_02.png") no-repeat;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 4px 4px 4px 4px;
+    font: normal normal normal normal 14px / 16px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    list-style: none outside none;
+    outline: rgb(64, 64, 64) none 0px;
+    padding: 3px 20px 3px 5px;
+    }

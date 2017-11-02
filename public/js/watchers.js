@@ -1,4 +1,4 @@
-var watchersCount = function (user, cb) {
+var watchersCount = function (user, cb,access_token) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 
@@ -27,7 +27,8 @@ var watchersCount = function (user, cb) {
         https.request({
             hostname: 'api.github.com',
             path: url,
-            headers: { 'User-Agent': 'GitHub StarCounter' }
+            headers: { 'User-Agent': 'GitHub StarCounter','Authorization': 'token '+ access_token  }
+
         }, function (res) {
             var body = ''
             res

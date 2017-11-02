@@ -1,8 +1,8 @@
-var issuesCount = function (user, cb) {
+var issuesCount = function (user, cb,access_token) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 
-    request('/users/' + user, function (res) {
+    request('/users/' + user , function (res) {
         if (!res.public_repos) {
             console.log(res.message)
             return
@@ -27,7 +27,7 @@ var issuesCount = function (user, cb) {
         https.request({
             hostname: 'api.github.com',
             path: url,
-            headers: { 'User-Agent': 'GitHub StarCounter' }
+            headers: { 'User-Agent': 'GitHub StarCounter','Authorization': 'token '+ access_token  }
         }, function (res) {
             var body = ''
             res

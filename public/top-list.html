@@ -1,31 +1,43 @@
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
-<div class="row col-sm-12">
+<div class="row col-sm-12" ng-model="shows">
     </br>	
     <fieldset class="fieldset">	
         <legend class="legend">
             Top Github developers in Expensya
-        </legend>	
-<table align="center" width="70%"  class="table table-striped table-bordered table-hover" id="dataTables-example">
+        </legend>
+
+        <div class="form-group">
+                <select id="select" ng-model="item" ng-options="item as item.menu for item in shows" class="form-control"></select>
+        </div>
+<div class="col-lg-6 col-xs-4 pull-left"><button type="submit" class="btn btn-primary" ng-click="Ajouter(nom,item.menu ,item.prix)">Submit</button>
+</div>
+
+</br></br></br>
+<table align="center" width="70%"  class="table table-striped table-bordered table-hover" id="dataTables-example"  align = "middle">
                                 <thead>
                                     <tr>
-										<th>
+                                        <th>
+                                            
+                                        </th>
+										<td align = "middle">
 											Username
-										</th>
-										<th>
+										</td>
+										<td align = "middle">
 											Expensya rank 
-										</th>
-										<th>
+										</td>
+										<td align = "middle">
                                             Stars 
-                                            <i class="fa fa-star star"></i>
-										</th>
+										</td>
 										</tr>
                                 </thead>
                                 <tbody>
                             
 								<tr ng-repeat="a in profiles | filter: rech">
-                                    <td>{{a.username}} </td>
-                                    <td>{{a.starsNbr}}</td>
-                                    <td>{{a.totalScore}}</td>
+                                   <td align = "left"><img class="thumbnail avatar" src=".\file\github-mark.png"></td>
+                                    <td align = "middle"><a id="lienProfil" href="#/profile/{{a.username}}">{{a.username}}</a></td> 
+                                    <!-- {{a.username}}    <a id="lienProfil" href="/profile/zied"+></a>-->
+                                    <td align = "middle">{{$index+1}} </td>
+                                    <td align = "middle">{{a.totalScore}} <i class="fa fa-star star"></i></td>
                                   </tr>
                                 </tbody>
                             </table>

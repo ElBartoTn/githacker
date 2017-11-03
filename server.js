@@ -106,15 +106,20 @@ app.post('/auth/github', function(req, res) {
 
                   db.collection(PROFILES_COLLECTION).insertOne(user);
                   //adding score
-                  starsCount(github_id,access_token, function (total) {
-                    
+                   starsCount(github_id,access_token, function (total) {
+                    if(total==null || total==undefined){total=0};
                      forksCount(github_id,access_token, function (total2) {
-                           
+                        if(total2==null || total2==undefined){total2=0};
+                        
                           issuesCount(github_id,access_token, function (total3) {
-                         
+                            if(total3==null || total3==undefined){total3=0};
+                            
                              watchersCount(github_id,access_token, function (total4) {
-                                 
+                                if(total4==null || total==undefined){total4=0};
+                                
                                  nbrprojetcount(github_id,access_token, function (total5) {
+                                    if(total5==null || total5==undefined){total5=0};
+                                    
                                          addition(total,total2,total3,total4,total5,function(score){
                                                         db.collection(PROFILES_COLLECTION).update({
                                                           username: github_id
@@ -340,15 +345,20 @@ app.post('/auth/github', function(req, res) {
                     
                   });
                    //updating score
-                   starsCount(github_id,access_token, function (total) {
-                    
+                        starsCount(github_id,access_token, function (total) {
+                    if(total==null || total==undefined){total=0};
                      forksCount(github_id,access_token, function (total2) {
-                           
+                        if(total2==null || total2==undefined){total2=0};
+                        
                           issuesCount(github_id,access_token, function (total3) {
-                         
+                            if(total3==null || total3==undefined){total3=0};
+                            
                              watchersCount(github_id,access_token, function (total4) {
-                                 
+                                if(total4==null || total==undefined){total4=0};
+                                
                                  nbrprojetcount(github_id,access_token, function (total5) {
+                                    if(total5==null || total5==undefined){total5=0};
+                                    
                                          addition(total,total2,total3,total4,total5,function(score){
                                                         db.collection(PROFILES_COLLECTION).update({
                                                           username: github_id

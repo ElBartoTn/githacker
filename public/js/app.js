@@ -27,8 +27,8 @@ Githackapp.config(function($authProvider) {
     
     $authProvider.github({
         clientId: "0072677d119c0d0e83eb",
-        redirectUri: "http://localhost:8080/",
-        url: "http://localhost:8080/auth/github",
+        redirectUri: "https://githacker-expensya.herokuapp.com/",
+        url: "https://githacker-expensya.herokuapp.com//auth/github",
       });
     
       $authProvider.httpInterceptor = true;

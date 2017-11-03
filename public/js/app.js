@@ -28,8 +28,8 @@ Githackapp.config(function ($authProvider) {
 
     $authProvider.github({
         clientId: "0072677d119c0d0e83eb",
-        redirectUri: "https://githacker-expensya.herokuapp.com/#/",
-        url: "https://githacker-expensya.herokuapp.com/#/auth/github",
+        redirectUri: "https://githacker-expensya.herokuapp.com/",
+        url: "https://githacker-expensya.herokuapp.com/auth/github",
     });
 
     $authProvider.httpInterceptor = true;

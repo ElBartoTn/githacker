@@ -28,8 +28,8 @@ Githackapp.config(function ($authProvider) {
 
     $authProvider.github({
         clientId: "0072677d119c0d0e83eb",
-        redirectUri: "http://localhost:8080/",
-        url: "http://localhost:8080/auth/github",
+        redirectUri: "https://githacker-expensya.herokuapp.com/#/",
+        url: "https://githacker-expensya.herokuapp.com/#/auth/github",
     });
 
     $authProvider.httpInterceptor = true;
@@ -55,7 +55,7 @@ Githackapp.controller("LoginController", function ($http, $scope, $auth, $locati
 
 
     $scope.calculScore = function (username) {
-        $http.get('http://localhost:8080/profiles/' + username).success(function (data) {
+        $http.get('https://githacker-expensya.herokuapp.com/#/profiles/' + username).success(function (data) {
             $scope.p = data;
             $scope.forknbr = data.forkNbr;
             console.log($scope.forknbr);
@@ -73,7 +73,7 @@ Githackapp.controller("LoginController", function ($http, $scope, $auth, $locati
 
 });
 Githackapp.controller("ProfileController", function ($http, $scope, $routeParams) {
-    $http.get('http://localhost:8080/profiles/' + $routeParams.username).success(function (data) {
+    $http.get('https://githacker-expensya.herokuapp.com/#/profiles/' + $routeParams.username).success(function (data) {
         $scope.p = data;
         if ($scope.p.img==""){
             $scope.p.img="/public/files/image.png";
@@ -173,7 +173,7 @@ Githackapp.controller("ProfileController", function ($http, $scope, $routeParams
 
 Githackapp.controller("TopListController", function ($http, $scope) {
 
-    $http.get('http://localhost:8080/profiles/').success(function (data) {
+    $http.get('https://githacker-expensya.herokuapp.com/#/profiles/').success(function (data) {
         $scope.profiles = data;
 
     });

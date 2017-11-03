@@ -6,8 +6,8 @@ var Githackapp = angular.module('Githackapp',  ['ngRoute','satellizer','zingchar
 Githackapp.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "index.html",
-            controller: "MainController",
+            templateUrl: "login.html",
+            controller: "LoginController",
 
         })
         .when("/login", {

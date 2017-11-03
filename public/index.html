@@ -13,51 +13,89 @@
 <link href="/css/login.css" rel="stylesheet" />
 <link href="/css/bootstrap-social.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
-<script type="text/javascript" src="js/zingchart-angularjs.js"></script>
+<script src="js/zingchart-angularjs.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css"/>
 
+<link rel="stylesheet" href="./css/profile.css">
 
-
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<!-- Bootstrap Core JS -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 </head>
+<body ng-app="YourApp">
 
-  <body ng-controller="mainController">
+    <!--HEADER-->
+    <header class="header">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container full-Width">
+          <div class="row">
+            <div class="navbar-header logo-header">
+
+              <a class="navbar-brand" id="navbar-logo" href="https://www.expensya.com" ></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right" >
+                
+                     <li class="">
+                         <a href="#/login">Refresh Github profile</a>   
+                     </li>
+                     <li>
+                         <a href="#/toplist">Top developer</a>   
+                     </li>
+                   
+             </ul>
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </nav>
+    </header><!-- /.header -->
+
+
+
+
+
+
+
+
+
+
+<!-- </head>
+
+  <body>
   
     <!-- Navbar here -->
-    <header class="header">
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container full-width">
-            <div class="row" >
-              
-              <ul class="nav navbar-nav navbar-right">
-                <li >
-                  <a  href="#/login" >Refresh Github profile</a>
-                </li>
-                <li>
-                    <a href="#/toplist">Top developer</a>   
-                    
-                </li>
-              </ul>
-             
 
+    <header class="header">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container full-Width">
+          <div class="row">
+            <div class="navbar-header logo-header">
+
+              <a class="navbar-brand" id="navbar-logo" href="https://www.expensya.com" ></a>
+              
             
-                  <ul class="nav  navbar-left " style="margin-top: -18px;">
-                      <li >
-                          <a href="https://www.expensya.com" ><img src="img/Expensya.png"></a>
-                      </li>
-                  </ul>
-                    
-               </div>
             </div>
-        </nav>
-      </header>
-    
+            <ul class="nav navbar-nav navbar-right" >
+                
+                     <li class="">
+                         <a href="#/login">Refresh Github profile</a>   
+                     </li>
+                     <li>
+                         <a href="#/toplist">Top developer</a>   
+                     </li>
+                   
+             </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header> -->
 
 
     
   
 
   <!-- Dynamically render templates -->
-   <div> <div  ng-view> </div></div>
+    <div  ng-view> </div>
   </body>
 </html>

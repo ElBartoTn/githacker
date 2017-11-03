@@ -84,29 +84,31 @@ Githackapp.controller("ProfileController", function ($http, $scope, $routeParams
         var node=0;
         var css=0;
         
-        for (var i = 0; i <  $scope.p.technologie.length; i++) {
-        
-            if($scope.p.technologie[i] == "JavaScript")
-            {
-                   js += 1;
+         if($scope.p.technologie){
+            for (var i = 0; i <  $scope.p.technologie.length; i++) {
+            
+                if($scope.p.technologie[i] == "JavaScript")
+                {
+                       js += 1;
+                }
+                if($scope.p.technologie[i] == 'Php')
+                {
+                        $scope.php +=1;
+                }
+                if($scope.p.technologie[i] == 'Angularjs')
+                {
+                        $scope.angularjs +=1;
+                }
+                if($scope.p.technologie[i] == 'Node')
+                {
+                        $scope.node +=1;
+                }
+                if($scope.p.technologie[i] == 'Css')
+                {
+                        $scope.css +=1;
+                }
             }
-            if($scope.p.technologie[i] == 'Php')
-            {
-                    $scope.php +=1;
-            }
-            if($scope.p.technologie[i] == 'Angularjs')
-            {
-                    $scope.ang +=1;
-            }
-            if($scope.p.technologie[i] == 'Node')
-            {
-                    $scope.node +=1;
-            }
-            if($scope.p.technologie[i] == 'Css')
-            {
-                    $scope.css +=1;
-            }
-          }
+        }
         
         
         $scope.myJson = {

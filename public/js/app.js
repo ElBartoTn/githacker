@@ -96,7 +96,7 @@ Githackapp.controller("ProfileController", function ($http, $scope, $routeParams
             }
             if($scope.p.technologie[i] == 'Angularjs')
             {
-                    $scope.angularjs +=1;
+                    $scope.ang +=1;
             }
             if($scope.p.technologie[i] == 'Node')
             {
@@ -146,7 +146,7 @@ Githackapp.controller("ProfileController", function ($http, $scope, $routeParams
                 backgroundColor: "#f14e4e  #f14e4e ",
             }, {
                 text: "AngularJS",
-                values: [angular],
+                values: [ang],
                 backgroundColor: "#698b69 #698b69"
             }, {
                 text: "PHP",

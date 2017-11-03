@@ -123,7 +123,7 @@ app.post('/auth/github', function (req, res) {
  *    POST: creates a new profile
  */
 app.get("/profiles", function (req, res) {
-  db.collection(PROFILES_COLLECTION).find().sort({ totalScore: -1 }).toArray(function (err, docs) {
+  db.collection(PROFILES_COLLECTION).find().sort({ score: -1 }).toArray(function (err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get profile.");
     } else {

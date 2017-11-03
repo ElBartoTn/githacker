@@ -27,11 +27,22 @@ Githackapp.config(function ($authProvider) {
 
     $authProvider.github({
         clientId: "0072677d119c0d0e83eb",
+<<<<<<< HEAD
         redirectUri: "http://localhost:8080/",
         url: "http://localhost:8080/auth/github",
     });
 
     $authProvider.httpInterceptor = true;
+=======
+        redirectUri: "https://githacker-expensya.herokuapp.com/",
+        url: "https://githacker-expensya.herokuapp.com/auth/github",
+      });
+    
+      $authProvider.httpInterceptor = true;
+    
+    
+      });
+>>>>>>> 9682c5806db04ba0857d1877441b44fd301e7ab5
 
 
 });
@@ -53,6 +64,7 @@ Githackapp.controller("LoginController", function ($http, $scope, $auth, $locati
 
 
 
+<<<<<<< HEAD
     $scope.calculScore = function (username) {
         $http.get('http://localhost:8080/profiles/' + username).success(function (data) {
             $scope.p = data;
@@ -65,14 +77,34 @@ Githackapp.controller("LoginController", function ($http, $scope, $auth, $locati
         });
 
     }
+=======
+$scope.calculScore=function(username)
+{
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/'+username).success(function(data) {
+        $scope.p = data;
+        $scope.forknbr=data.forkNbr;
+        console.log( $scope.forknbr);
+        $scope.projectNbr=data.projectNbr;
+        console.log(  $scope.projectNbr);
+        $scope.totalscore=parseInt($scope.forknbr)+parseInt($scope.projectNbr);
+        console.log($scope.totalscore);
+    });
+   
+}
+>>>>>>> 9682c5806db04ba0857d1877441b44fd301e7ab5
 
 
 
 
 
 });
+<<<<<<< HEAD
 Githackapp.controller("ProfileController", function ($http, $scope, $routeParams) {
     $http.get('http://localhost:8080/profiles/' + $routeParams.username).success(function (data) {
+=======
+Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/'+$routeParams.username).success(function(data) {
+>>>>>>> 9682c5806db04ba0857d1877441b44fd301e7ab5
         $scope.p = data;
         if ($scope.p.img==""){
             $scope.p.img="/public/files/image.png";
@@ -172,7 +204,11 @@ Githackapp.controller("ProfileController", function ($http, $scope, $routeParams
 
 Githackapp.controller("TopListController", function ($http, $scope) {
 
+<<<<<<< HEAD
     $http.get('http://localhost:8080/profiles/').success(function (data) {
+=======
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/').success(function(data) {
+>>>>>>> 9682c5806db04ba0857d1877441b44fd301e7ab5
         $scope.profiles = data;
 
     });

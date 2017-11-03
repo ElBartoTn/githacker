@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <link rel="stylesheet" type="text/css" href="/css/style.css" />
-        <div class="row col-sm-12" ng-model="shows">
+        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+        <div class="row col-sm-12">
             </br>
-            <fieldset class="fieldset">
+            <fieldset class="fieldset" style="margin-top:2cm;">
                 <legend class="legend">
                     Top Github developers in Expensya
                 </legend>
@@ -12,7 +12,7 @@
                     <select id="select" ng-model="item" ng-options="item as item.menu for item in shows" class="form-control"></select>
                 </div>
                 <div class="col-lg-6 col-xs-4 pull-left">
-                    <button type="submit" class="btn btn-primary" ng-click="Ajouter(nom,item.menu ,item.prix)">Submit</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
 
                 </br>
@@ -51,7 +51,7 @@
                             </td>
                             <!-- {{a.username}}    <a id="lienProfil" href="/profile/zied"+></a>-->
                             <td align="middle">{{$index+1}} </td>
-                            <td align="middle">{{a.totalScore}}
+                            <td align="middle">{{a.score}}
                                 <i class="fa fa-star star"></i>
                             </td>
 <<<<<<< HEAD

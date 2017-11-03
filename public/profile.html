@@ -16,7 +16,7 @@
                 <div class="col-md-3">
                     <div class="profile-sidebar">
                         <div class="profile-user-pic">
-                            <img src={{p.img}} class="img-responsive img-circle">
+                            <img src="{{p.img}}" class="img-responsive img-circle">
                         </div>
                         <div class="profile-user-title">
                             <div class="profile-user-name">
@@ -51,8 +51,8 @@
                    <div class="conleftleft">
                        <div class="haut">
                         <img src="./files/projet.png" width="110px" height="110px">
-                        N.projects
                         </div>
+                        <div class="mot">N.projects</div>
                         <div class="bas">
                                 {{p.nbrprojet}}
                         </div>
@@ -61,8 +61,9 @@
                    <div class="conleftleft2">
                         <div class="haut">
                                 <img src="./files/watcher.png" width="110px" height="110px">
-                                N.watcher
+                               
                                 </div>
+                                <div class="mot"> N.watchers</div>
                                 <div class="bas">
                                         {{p.watchNbr}}
                                 </div>
@@ -73,11 +74,10 @@
         
     
     </body>
-
- 
 <script>
-    scope.log($scope.js);
-    scope.log('hello');
+   
 </script>
+ 
+
 
 </html>

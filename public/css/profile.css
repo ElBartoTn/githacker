@@ -114,3 +114,22 @@ li{
     right: 105px;
     top: 365px;
 }
+.haut{
+    position: absolute;
+    right: -3px;
+    margin: 30px 70px;
+}
+.bas{
+    position: absolute;
+    top: 215px;
+    right: 116px;
+    font-size: 24px;
+}
+.mot{
+    position: absolute;
+    top: 150px;
+    right: 80px;
+    font-size: 17px;
+    border-style: dashed;
+}
+

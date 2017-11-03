@@ -1,6 +1,5 @@
 <div class="container">
     <div class="row">
-        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
         <div class="row col-sm-12">
             </br>
             <fieldset class="fieldset" style="margin-top:2cm;">
@@ -8,16 +7,6 @@
                     Top Github developers in Expensya
                 </legend>
 
-                <div class="form-group">
-                    <select id="select" ng-model="item" ng-options="item as item.menu for item in shows" class="form-control"></select>
-                </div>
-                <div class="col-lg-6 col-xs-4 pull-left">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-
-                </br>
-                </br>
-                </br>
                 <table align="center" width="70%" class="table table-striped table-bordered table-hover" id="dataTables-example" align="middle">
                     <thead>
                         <tr>
@@ -37,7 +26,7 @@
                     </thead>
                     <tbody>
 
-                        <tr ng-repeat="a in profiles | filter: rech">
+                        <tr ng-repeat="a in profiles ">
                             <td align="left">
                                 <img class="thumbnail avatar" src="{{a.img}}">
                             </td>
@@ -56,4 +45,5 @@
 
 
         </div>
+    </div>
     </div>

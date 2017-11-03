@@ -55,7 +55,7 @@ Githackapp.controller("LoginController", function ($http, $scope,$auth,$location
 
 $scope.calculScore=function(username)
 {
-    $http.get('http://localhost:8080/profiles/'+username).success(function(data) {
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/'+username).success(function(data) {
         $scope.p = data;
         $scope.forknbr=data.forkNbr;
         console.log( $scope.forknbr);
@@ -73,7 +73,7 @@ $scope.calculScore=function(username)
 
 });
 Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
-    $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/'+$routeParams.username).success(function(data) {
         $scope.p = data;
     });
 
@@ -86,7 +86,7 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
 
 Githackapp.controller("TopListController", function ($http, $scope) {
 
-    $http.get('http://localhost:8080/profiles/').success(function(data) {
+    $http.get('https://githacker-expensya.herokuapp.com/profiles/').success(function(data) {
         $scope.profiles = data;
         
     });

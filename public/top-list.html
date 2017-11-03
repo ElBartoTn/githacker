@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
-        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-        <div class="row col-sm-12">
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
+        <div class="row col-sm-12" ng-model="shows">
             </br>
-            <fieldset class="fieldset" style="margin-top:2cm;">
+            <fieldset class="fieldset">
                 <legend class="legend">
                     Top Github developers in Expensya
                 </legend>
@@ -12,7 +12,7 @@
                     <select id="select" ng-model="item" ng-options="item as item.menu for item in shows" class="form-control"></select>
                 </div>
                 <div class="col-lg-6 col-xs-4 pull-left">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" ng-click="Ajouter(nom,item.menu ,item.prix)">Submit</button>
                 </div>
 
                 </br>
@@ -29,20 +29,15 @@
                             </td>
                             <td align="middle">
                                 Expensya rank
-                            </th>
-                            <th>
-                                Score
-                                                            </th>
+                            </td>
+                            <td align="middle">
+                                Stars
+                            </td>
                         </tr>
                     </thead>
                     <tbody>
 
                         <tr ng-repeat="a in profiles | filter: rech">
-<<<<<<< HEAD
-                            <td>{{$index+1}} </td>
-                            <td>{{a.username}}</td>
-                            <td>{{a.totalScore}}</td>
-=======
                             <td align="left">
                                 <img class="thumbnail avatar" src="{{a.img}}">
                             </td>
@@ -54,11 +49,6 @@
                             <td align="middle">{{a.score}}
                                 <i class="fa fa-star star"></i>
                             </td>
-<<<<<<< HEAD
->>>>>>> 8909f647479812ee290b361966f6b5f42d5559b1
-=======
-                            <td>{{starsCount(a.username)}}</td>
->>>>>>> 3afd6022302659f9c5a5dc1e311aceff6fff09f1
                         </tr>
                     </tbody>
                 </table>

@@ -16,7 +16,7 @@
                 <div class="col-md-3">
                     <div class="profile-sidebar">
                         <div class="profile-user-pic">
-                            <img src="./files/image.png" class="img-responsive img-circle">
+                            <img src={{p.img}} class="img-responsive img-circle">
                         </div>
                         <div class="profile-user-title">
                             <div class="profile-user-name">
@@ -24,7 +24,7 @@
                                
                             </div>
                             <div class="profile-user-job">
-                                Score:{{p.totalScore}}
+                                Score:{{p.score}}
                             </div>
                         </div>
                         <div class="profile-user-buttons">
@@ -34,10 +34,10 @@
                         </div>
                         <div class="profile-user-menu">
                             <ul class="nav">
-                                <li ><a><i class="glyphicon glyphicon-home" ></i>Country: {{p.country}} </a></li>
+                                <li ><a><i class="glyphicon glyphicon-home" ></i>Country: Tunisia </a></li>
                                 <li ><a><i class="glyphicon glyphicon-star"></i>Stars: {{p.starsNbr}}</a></li>
-                                <li ><a><i class="glyphicon glyphicon-ok"></i>N.projets:{{p.projectNbr}}</a></li>
-                                <li ><a><i class="glyphicon glyphicon-flag"></i>N.issues:{{p.issuesNbr}}</a></li>
+                                <li ><a><i class="glyphicon glyphicon-ok"></i>N.forks:{{p.forksNbr}}</a></li>
+                                <li ><a><i class="glyphicon glyphicon-flag"></i>N.issues:{{p.issueNbr}}</a></li>
                             </ul>  
                         </div>
                     </div>
@@ -49,10 +49,24 @@
                         </div>
                    </div>
                    <div class="conleftleft">
-                       im here
+                       <div class="haut">
+                        <img src="./files/projet.png" width="110px" height="110px">
+                        N.projects
+                        </div>
+                        <div class="bas">
+                                {{p.nbrprojet}}
+                        </div>
+                        
                    </div>
                    <div class="conleftleft2">
-                       imhere2
+                        <div class="haut">
+                                <img src="./files/watcher.png" width="110px" height="110px">
+                                N.watcher
+                                </div>
+                                <div class="bas">
+                                        {{p.watchNbr}}
+                                </div>
+                        
                    </div>
             </div>
         </div>
@@ -61,6 +75,9 @@
     </body>
 
  
-</html>
+<script>
+    scope.log($scope.js);
+    scope.log('hello');
+</script>
 
 </html>

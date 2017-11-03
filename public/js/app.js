@@ -75,6 +75,35 @@ $scope.calculScore=function(username)
 Githackapp.controller("ProfileController", function ($http, $scope,$routeParams) {
     $http.get('http://localhost:8080/profiles/'+$routeParams.username).success(function(data) {
         $scope.p = data;
+        var js=0;
+        var php=0;
+        var ang=0;
+        var node=0;
+        var css=0;
+        
+        for (var i = 0; i <  $scope.p.technologie.length; i++) {
+        
+            if($scope.p.technologie[i] == "JavaScript")
+            {
+                   js += 1;
+            }
+            if($scope.p.technologie[i] == 'Php')
+            {
+                    $scope.php +=1;
+            }
+            if($scope.p.technologie[i] == 'Angularjs')
+            {
+                    $scope.angularjs +=1;
+            }
+            if($scope.p.technologie[i] == 'Node')
+            {
+                    $scope.node +=1;
+            }
+            if($scope.p.technologie[i] == 'Css')
+            {
+                    $scope.css +=1;
+            }
+          }
         
         
         $scope.myJson = {
@@ -110,31 +139,29 @@ Githackapp.controller("ProfileController", function ($http, $scope,$routeParams)
             },
             series: [{
                 text: "JavaScript",
-                values: [40],
+                values: [js],
                 backgroundColor: "#f14e4e  #f14e4e ",
             }, {
                 text: "AngularJS",
-                values: [20],
+                values: [angular],
                 backgroundColor: "#698b69 #698b69"
             }, {
                 text: "PHP",
-                values: [5],
+                values: [php],
                 backgroundColor: "#FDAA97 #FC9B87"
             }, {
                 text: "CSS",
-                values: [10],
+                values: [css],
                 backgroundColor: "#28C2D1"
             }, {
                 text: "Node",
-                values: [25],
+                values: [node],
                 backgroundColor: "#D2D6DE",
             }]
         };
     });
 
-    
        
-        
     });
 
 

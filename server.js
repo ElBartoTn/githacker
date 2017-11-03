@@ -8,6 +8,13 @@ var PROFILES_COLLECTION = "profiles";
 var request = require('request');
 var isEmpty = require('lodash.isempty');
 var qs = require('qs');
+var starsCount = require('./public/js/stars.js')
+var issuesCount = require('./public/js/openIssues.js')
+var forksCount = require('./public/js/forks.js')
+var watchersCount = require('./public/js/watchers.js')
+var nbrprojetcount = require('./public/js/nbrprojet.js')
+var technologie = require('./public/js/technologie.js')
+var image = require('./public/js/image.js')
 
 var app = express();
 app.use(express.static(__dirname + "/public"));
@@ -34,7 +41,7 @@ mongodb.MongoClient.connect(url, function (err, database) {
     console.log("App now running on port", port);
   });
 });
-
+      
 // PROFILE API ROUTES BELOW
 
 // Generic error handler used by all endpoints.
@@ -64,6 +71,7 @@ app.post('/auth/github', function(req, res) {
       var access_token = qs.parse(token).access_token;
       
       var github_client = github.client(access_token);
+
       // Retrieve profile information about the current user.
       github_client.me().info(function(err, profile) {
           if (err) {
@@ -72,18 +80,157 @@ app.post('/auth/github', function(req, res) {
               });
           }
           var github_id = profile['login'];
+          var addition = function(x,y,z,u,v,cb){
+            
+            var tot = x+y+z+u+v
+            cb(tot)
+            
+            }
+
+       
+          
           db.collection(PROFILES_COLLECTION).findOne({
               username: github_id
           }, function(err, docs) {
               // The user doesn't have an account already
+             
+
               if (docs==null) {
                 
                   // Create the user
                   var user = {
                       username: github_id,
                       oauth_token: access_token
+
                   }
+
                   db.collection(PROFILES_COLLECTION).insertOne(user);
+                  //adding score
+                  starsCount(github_id,access_token, function (total) {
+                    
+                     forksCount(github_id,access_token, function (total2) {
+                           
+                          issuesCount(github_id,access_token, function (total3) {
+                         
+                             watchersCount(github_id,access_token, function (total4) {
+                                 
+                                 nbrprojetcount(github_id,access_token, function (total5) {
+                                         addition(total,total2,total3,total4,total5,function(score){
+                                                        db.collection(PROFILES_COLLECTION).update({
+                                                          username: github_id
+                                                          
+                                                      }, {
+                                                          $set: {
+                                                              score: score
+                                                          }
+                                                          
+                                                      })
+                             
+                                                })
+                     
+                                            })
+                 
+                                    })
+                 
+                              })
+                        
+                  })
+                });
+                    //Adding stars
+
+                  starsCount(github_id,access_token, function (stars) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          starsNbr: stars
+                      }
+                      
+                  })
+                    
+                  });
+                  //adding forks
+                  forksCount(github_id,access_token, function (forks) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          forksNbr: forks
+                      }
+                      
+                  })
+                    
+                  });
+                        //adding watcher
+                    watchersCount(github_id,access_token, function (watcher) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          watchNbr: watcher
+                      }
+                      
+                  })
+                    
+                  });
+                    //adding issues
+                    issuesCount(github_id,access_token, function (issue) {
+                      db.collection(PROFILES_COLLECTION).update({
+                        username: github_id
+                        
+                    }, {
+                        $set: {
+                            issueNbr: issue
+                        }
+                        
+                    })
+                      
+                    });
+
+                    //adding image
+                   image(github_id,access_token, function (img) {
+                      db.collection(PROFILES_COLLECTION).update({
+                        username: github_id
+                        
+                    }, {
+                        $set: {
+                            img: img
+                        }
+                        
+                    })
+                      
+                    });
+
+                      //adding technologie
+                      technologie(github_id,access_token, function (tech) {
+                        db.collection(PROFILES_COLLECTION).update({
+                          username: github_id
+                          
+                      }, {
+                          $set: {
+                             technologie: tech
+                          }
+                          
+                      })
+                        
+                      });
+                          //adding project nbr
+                          nbrprojetcount(github_id,access_token, function (projnbr) {
+                            db.collection(PROFILES_COLLECTION).update({
+                              username: github_id
+                              
+                          }, {
+                              $set: {
+                                nbrprojet: projnbr
+                              }
+                              
+                          })
+                            
+                          });
+
                   console.log(github_id  + 'inserted');
                   
               }
@@ -99,6 +246,131 @@ app.post('/auth/github', function(req, res) {
                       
                   })
                   console.log(github_id  + 'updated');
+                  //updating stars
+                  starsCount(github_id,access_token, function (stars) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          starsNbr: stars
+                      }
+                      
+                  })
+                  console.log(stars   + '  inserted');
+                    
+                  });
+                      //updating forks
+                    forksCount(github_id,access_token, function (forks) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          forksNbr: forks
+                      }
+                      
+                  })
+                    
+                  });   
+
+                      //updating watcher
+                      watchersCount(github_id,access_token, function (watcher) {
+                        db.collection(PROFILES_COLLECTION).update({
+                          username: github_id
+                          
+                      }, {
+                          $set: {
+                              watchNbr: watcher
+                          }
+                          
+                      })
+                        
+                      });
+                    //updating issues
+                    issuesCount(github_id,access_token, function (issue) {
+                      db.collection(PROFILES_COLLECTION).update({
+                        username: github_id
+                        
+                    }, {
+                        $set: {
+                            issueNbr: issue
+                        }
+                        
+                    })
+                      
+                    });
+                      //updating image
+                   image(github_id,access_token, function (img) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                          img: img
+                      }
+                      
+                  })
+                    
+                  });
+                  //updating technologie
+                  technologie(github_id,access_token, function (tech) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                         technologie: tech
+                      }
+                      
+                  })
+                    
+                  });
+                  //updating project nbr
+                  nbrprojetcount(github_id,access_token, function (projnbr) {
+                    db.collection(PROFILES_COLLECTION).update({
+                      username: github_id
+                      
+                  }, {
+                      $set: {
+                        nbrprojet: projnbr
+                      }
+                      
+                  })
+                    
+                  });
+                   //updating score
+                   starsCount(github_id,access_token, function (total) {
+                    
+                     forksCount(github_id,access_token, function (total2) {
+                           
+                          issuesCount(github_id,access_token, function (total3) {
+                         
+                             watchersCount(github_id,access_token, function (total4) {
+                                 
+                                 nbrprojetcount(github_id,access_token, function (total5) {
+                                         addition(total,total2,total3,total4,total5,function(score){
+                                                        db.collection(PROFILES_COLLECTION).update({
+                                                          username: github_id
+                                                          
+                                                      }, {
+                                                          $set: {
+                                                              score: score
+                                                          }
+                                                          
+                                                      })
+                             
+                                                })
+                     
+                                            })
+                 
+                                    })
+                 
+                              })
+                        
+                  })
+                });
+
                   
               }
           });

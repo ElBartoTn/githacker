@@ -1,4 +1,4 @@
-var forksCount = function (user, cb) {
+var forksCount = function (user,access_token, cb) {
 	var https = require('https')
 	opts = parseOpts(process.argv.slice(3))
 
@@ -27,7 +27,7 @@ var forksCount = function (user, cb) {
 		https.request({
 			hostname: 'api.github.com',
 			path: url,
-			headers: { 'User-Agent': 'GitHub StarCounter' }
+			headers: { 'User-Agent': 'GitHub StarCounter','Authorization': 'token '+ access_token  }
 		}, function (res) {
 			var body = ''
 			res

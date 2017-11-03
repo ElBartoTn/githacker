@@ -1,4 +1,4 @@
-var nbrprojetcount = function (user, cb) {
+var nbrprojetcount = function (user,access_token, cb) {
     var https = require('https')
     opts = parseOpts(process.argv.slice(3))
 
@@ -44,11 +44,6 @@ var nbrprojetcount = function (user, cb) {
     function output(repos) {
         var nbr = 0,
             nbr = repos.length
-
-
-
-
-
         return nbr;
 
 		/* console.log('\nTatal: ' + total + '\n')
